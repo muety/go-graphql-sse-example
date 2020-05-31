@@ -1,0 +1,22 @@
+schema {
+    query: Query
+    mutation: Mutation
+    subscription: Subscription
+}
+
+type Query {
+    product(id: ID!): Product
+    products(): [Product]
+    order(id: ID!): Order
+    orders(status: String): [Order]
+}
+
+type Mutation {
+    createOrder(order: OrderInput!): Order
+    updateOrder(order: OrderUpdateInput!): Order
+}
+
+type Subscription {
+    orderCreated(): Order
+    orderChanged(id: ID!): Order
+}

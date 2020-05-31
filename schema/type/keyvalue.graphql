@@ -1,0 +1,11 @@
+# https://github.com/graphql/graphql-spec/issues/215
+
+type KeyValue {
+    key: String
+    value: String
+}
+
+input KeyValueInput {
+    key: String!
+    value: String!
+}

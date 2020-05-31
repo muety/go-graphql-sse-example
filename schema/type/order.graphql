@@ -1,0 +1,28 @@
+enum OrderStatus {
+    pending
+    delivering
+    fulfilled
+    rejected
+}
+
+type Order {
+    id: ID!
+    queueId: String
+    createdAt: Time
+    updatedAt: Time
+    status: OrderStatus
+    eta: Time
+    totalSum: Float
+    items: [String]
+    products: [Product]
+}
+
+input OrderInput {
+    items: [String]!
+}
+
+input OrderUpdateInput {
+    id: String!
+    status: OrderStatus
+    eta: Time
+}

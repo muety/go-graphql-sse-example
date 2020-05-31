@@ -1,0 +1,6 @@
+port: 8080
+addr: 127.0.0.1
+
+db:
+  url: mongodb://dbuser:secretpassword@localhost:27017/my_test_db
+  name: my_test_db
