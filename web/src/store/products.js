@@ -43,7 +43,7 @@ const actions = {
         const data = await Vue.$api.graphql.request(q)
         commit('addProducts', data.products.map(Product.new))
     },
-    async fetchProduct({commit, getters}, id) {
+    async fetchProduct({commit}, id) {
         const q = `{
           product(id: "${id}") {
             id

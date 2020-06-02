@@ -5,7 +5,7 @@ function addMinutes (date, minutes) {
 
 // https://stackoverflow.com/a/7709819/3112139
 // TODO: i18n
-function formatDiff (date1, date2, nonNegative, short, locale) {
+function formatDiff (date1, date2, nonNegative, short) {
   const diffMs = Math.max((date1 - date2), nonNegative ? 0 : Number.MIN_SAFE_INTEGER)
   const diffDays = Math.floor(diffMs / 86400000)
   const diffHrs = Math.floor((diffMs % 86400000) / 3600000)

@@ -1,0 +1,68 @@
+button {
+    background-color: #42b983;
+    padding: 5px;
+    color: #fff;
+    border: 0;
+    box-shadow: 0px 0px 1px 0px rgba(136, 136, 136, 1);
+    cursor: pointer;
+}
+
+h2 {
+    color: #42b983;
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+.container {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.justify-between {
+    justify-content: space-between;
+}
+
+.justify-start {
+    justify-content: flex-start;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.items-start {
+    align-items: flex-start;
+}
+
+.grow {
+    flex-grow: 10;
+}
+
+.padding-default {
+    padding: 0.75rem;
+}
+
+.margin-default {
+    margin: 0.75rem;
+}
+
+.margin-y-default {
+    margin-top: 0.75rem;
+    margin-bottom: 0.75rem;
+}
+
+.text-sm {
+    font-size: 0.8rem;
+}
+
+.w-full {
+    width: 100%;
+}
