@@ -16,9 +16,9 @@ function formatDiff (date1, date2, nonNegative, short) {
   const displayDays = x => short ? 'd' : (x === 1 ? 'Tag' : 'Tage')
 
   let str = ''
-  if (diffDays) str += `${diffDays} ${displayDays(diffDays)}, `
-  if (diffHrs) str += `${diffHrs} ${displayHrs(diffHrs)}, `
-  str += `${diffMins} ${displayMins(diffMins)}`
+  if (diffDays) str += `${diffDays}${displayDays(diffDays)}, `
+  if (diffHrs) str += `${diffHrs}${displayHrs(diffHrs)}, `
+  str += `${diffMins}${displayMins(diffMins)}`
 
   return str
 }

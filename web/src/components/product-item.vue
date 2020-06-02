@@ -1,16 +1,16 @@
 <template>
     <div class="container justify-between padding-default margin-y-default product-item">
-        <div class="product-field">
-            <span class="font-semibold">{{ product.name }}</span>
+        <div class="product-field font-semibold">
+            {{ product.name }}
         </div>
-        <div class="product-field grow">
-            <span class="text-sm">{{ product.description }}</span>
-        </div>
-        <div class="product-field">
-            <span class="">{{ price(product.price) }} €</span>
+        <div class="product-field grow text-sm">
+            {{ product.description }}
         </div>
         <div class="product-field">
-            <button>Buy</button>
+            {{ price(product.price) }} €
+        </div>
+        <div class="product-field">
+            <button @click="$emit('select', product.id)">Purchase</button>
         </div>
     </div>
 </template>
@@ -40,5 +40,8 @@
 
     .product-field {
         margin: 0 10px;
+        display: flex;
+        align-items: center;
     }
+
 </style>
