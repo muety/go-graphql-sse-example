@@ -56,6 +56,9 @@ const mutations = {
     setOrders(state, orders) {
         Vue.set(state, 'orders', orders)
     },
+    addOrders(state, orders) {
+        Vue.set(state, 'orders', state.orders.concat(orders))
+    },
     updateOrder(state, update) {
         const orderRefs = state.orders.filter(o => o.id === update.id)
             .concat(state.myOrder && state.myOrder.id === update.id ? [state.myOrder] : [])
@@ -73,7 +76,7 @@ const mutations = {
 }
 
 const actions = {
-    async fetchOrder({commit, state}, {id, full, target}) {
+    async fetchOrder({commit}, {id, full, target}) {
         const q = `query {
           order(id: "${id}") {
             ${full ? orderSelectionFull : orderSelection}
@@ -89,16 +92,17 @@ const actions = {
         }
     },
 
-    async fetchOrders({commit, state}, {tenantId, status, full}) {
+    async fetchOrders({commit}, {status, full, overwrite}) {
         const q = `query {
-          orders(tenantId: "${tenantId}", status: "${status}") {
+          orders(status: "${status}") {
             ${full ? orderSelectionFull : orderSelection}
           }
         }`
 
         const data = await Vue.$api.graphql.request(q, null)
 
-        commit('setOrders', data.orders.map(Order.new))
+        const commitFunc = overwrite ? 'setOrders' : 'addOrders'
+        commit(commitFunc, data.orders.map(Order.new))
     },
 
     async placeOrder({commit}, orderInput) {
@@ -143,7 +147,7 @@ const actions = {
         commit('updateOrder', order)
     },
 
-    async subscribeOrderChanged({commit, state, getters}, {id}) {
+    async subscribeOrderChanged({commit, getters}, {id}) {
         const orderRefs = getters.orderRefs(id)
         if (!orderRefs.length) return
 
@@ -167,7 +171,7 @@ const actions = {
         source.stream()
     },
 
-    async subscribeOrderCreated({commit, state}) {
+    async subscribeOrderCreated({commit}) {
         const q = `subscription {
             orderCreated() {
                 ${orderSelectionFull}
