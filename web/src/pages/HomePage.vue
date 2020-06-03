@@ -13,12 +13,12 @@
         <div class="cart container justify-center">
             <div class="container constrained-container padding-default justify-around w-full">
                 <div class="container">
-                    <h3 class="margin-r-default">🛒 {{ cart.length }} items</h3>
+                    <h3 class="margin-r-default">🛒 {{ cartItems.length }} items</h3>
                     <span>({{ price(sum) }} €)</span>
                 </div>
                 <div>
                     <button style="margin-right: 2px;" @click="clear">&#10226; Reset</button>
-                    <button style="margin-left: 2px;">&#10003; Checkout</button>
+                    <button style="margin-left: 2px;" @click="checkout">&#10003; Checkout</button>
                 </div>
             </div>
         </div>
@@ -34,15 +34,20 @@
         components: {ProductItem},
         computed: {
             ...mapState('products', ['products']),
-            ...mapState('cart', {cart: 'products'}),
+            ...mapState('cart', {cartItems: 'products'}),
             ...mapGetters('products', ['product']),
-            ...mapGetters('cart', ['sum'])
+            ...mapGetters('cart', {sum: 'sum', cartItemIds: 'productIds'})
         },
         methods: {
             ...mapActions('products', ['fetchProducts']),
+            ...mapActions('orders', ['placeOrder']),
             ...mapMutations('cart', ['addProduct', 'clear']),
             onProductSelected(id) {
                 this.addProduct(this.product(id))
+            },
+            checkout() {
+                this.placeOrder({items: this.cartItemIds})
+                    .catch(() => alert('Failed to place order'))
             }
         },
         created() {
