@@ -50,14 +50,6 @@ func (r *orderResolver) TotalSum() *float64 {
 	return &r.o.TotalSum
 }
 
-func (r *orderResolver) Items() *[]*string {
-	items := make([]*string, len(r.o.Items))
-	for i, it := range r.o.Items {
-		items[i] = &it
-	}
-	return &items
-}
-
 func (r *orderResolver) Products(ctx context.Context) (*[]*productResolver, error) {
 	l := make([]*productResolver, len(r.o.Items))
 	productIds := make([]string, len(r.o.Items))

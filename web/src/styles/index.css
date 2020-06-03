@@ -14,11 +14,28 @@ h2 {
     margin-bottom: 20px;
 }
 
+h3 {
+    color: #42b983;
+    font-weight: bold;
+    font-size: 1.0rem;
+    margin: 0;
+}
+
 .badge {
     background-color: #42b983;
     padding: 5px;
     color: #fff;
     font-weight: bold;
+    font-size: 0.75rem;
+}
+
+.badge.critical {
+    background-color: #e49918;
+}
+
+.bg-brand {
+    background-color: #42b983;
+    color: #fff;
 }
 
 .container {
@@ -57,6 +74,11 @@ h2 {
     padding: 0.75rem;
 }
 
+.padding-x-default {
+    padding-left: 0.75rem;
+    padding-right: 0.75rem;
+}
+
 .margin-default {
     margin: 0.75rem;
 }
@@ -64,6 +86,27 @@ h2 {
 .margin-y-default {
     margin-top: 0.75rem;
     margin-bottom: 0.75rem;
+}
+
+.margin-x-default {
+    margin-left: 0.75rem;
+    margin-right: 0.75rem;
+}
+
+.margin-l-default {
+    margin-left: 0.75rem;
+}
+
+.margin-r-default {
+    margin-right: 0.75rem;
+}
+
+.margin-b-default {
+    margin-bottom: 0.75rem;
+}
+
+.margin-t-default {
+    margin-top: 0.75rem;
 }
 
 .margin-t-double {
@@ -88,4 +131,8 @@ h2 {
 
 .text-center {
     text-align: center;
+}
+
+.text-white {
+    color: #fff;
 }

@@ -1,10 +1,10 @@
-import { addMinutes } from '../util/date'
-import { Product } from './product'
+import {addMinutes} from '../util/date'
+import {Product} from './product'
 
 const orderTimeoutMin = 10
 
 class Order {
-  constructor ({ id, queueId, createdAt, updatedAt, status, eta, totalSum, items, products }) {
+  constructor({id, queueId, createdAt, updatedAt, status, eta, totalSum,  products}) {
     this.id = id
     this.queueId = queueId
     this.createdAt = new Date(createdAt)
@@ -12,48 +12,36 @@ class Order {
     this.status = status
     this.eta = new Date(eta)
     this.totalSum = totalSum
-    this.items = items || []
 
     if (products) this.products = products.map(Product.new)
     else this.products = []
   }
 
-  get isPending () {
+  get isPending() {
     return this.status === 'pending'
   }
 
-  get isDelivering () {
+  get isDelivering() {
     return this.status === 'delivering'
   }
 
-  get isFulfilled () {
+  get isFulfilled() {
     return this.status === 'fulfilled'
   }
 
-  get isRejected () {
+  get isRejected() {
     return this.status === 'rejected'
   }
 
-  get isTimedOut () {
+  get isTimedOut() {
     return addMinutes(new Date(), -orderTimeoutMin) >= this.createdAt
   }
 
-  static new (data) {
+  static new(data) {
     return new Order(data)
   }
 }
 
-class OrderInput {
-  constructor ({ items }) {
-    this.items = items || []
-  }
-
-  static new (data) {
-    return new OrderInput(data)
-  }
-}
-
 export {
-  OrderInput,
   Order
 }

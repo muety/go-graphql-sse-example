@@ -1,21 +1,21 @@
 <template>
-    <div class="container justify-between padding-default margin-y-default order-item">
-        <div class="order-field badge text-sm">
-            # {{ order.queueId }}
+    <div class="container flex-col justify-center order-item">
+        <div class="container justify-between items-center bg-brand padding-default">
+            <h3 class="margin-r-default text-white">Order #{{ order.queueId }}</h3>
+            <div class="badge critical margin-l-default">{{ displayTime }}</div>
         </div>
-        <div class="order-field critical">
-            {{ displayTime }} ago
-        </div>
-        <div class="order-field text-sm container flex-col justify-center items-start">
-            <div v-for="(p, i) in order.products" :key="i">
-                {{ p.name }}
+        <div class="padding-default">
+            <div class="order-field text-sm container flex-col justify-center items-start margin-y-default">
+                <div v-for="(p, i) in order.products" :key="i">
+                    {{i+1}}. {{ p.name }}
+                </div>
             </div>
-        </div>
-        <div class="order-field text-sm">
-            {{ price(order.totalSum) }} €
-        </div>
-        <div class="order-field">
-            <button @click="$emit('select', order.id)">Done!️</button>
+            <div class="order-field text-sm container justify-center margin-y-default">
+                {{ price(order.totalSum) }} €
+            </div>
+            <div class="order-field container justify-center margin-t-default">
+                <button @click="$emit('select', order.id)">Done!️</button>
+            </div>
         </div>
     </div>
 </template>
@@ -57,13 +57,9 @@
     }
 
     .order-field {
-        margin: 0 10px;
+        margin-right: 10px;
+        margin-left: 10px;
         display: flex;
         align-items: center;
-    }
-
-    .critical {
-        color: #e49918;
-        font-weight: bold;
     }
 </style>

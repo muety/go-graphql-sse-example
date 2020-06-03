@@ -13,7 +13,6 @@ type Order {
     status: OrderStatus
     eta: Time
     totalSum: Float
-    items: [String]
     products: [Product]
 }
 

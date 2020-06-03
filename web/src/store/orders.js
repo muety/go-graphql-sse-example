@@ -15,7 +15,6 @@ const orderSelection = `
 
 const orderSelectionFull = `
   ${orderSelection}
-  items
   products {
     id
     name
@@ -105,7 +104,7 @@ const actions = {
         commit(commitFunc, data.orders.map(Order.new))
     },
 
-    async placeOrder({commit}, orderInput) {
+    async placeOrder({commit}, cart) {
         const q = `mutation($order: OrderInput!) {
           createOrder(order: $order) {
             id
@@ -118,8 +117,9 @@ const actions = {
           }
         }`
 
+        // OrderInput ~ Cart
         const vars = {
-            order: orderInput
+            order: cart
         }
 
         const data = await Vue.$api.graphql.request(q, vars)
