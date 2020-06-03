@@ -14,7 +14,7 @@
                 {{ price(order.totalSum) }} €
             </div>
             <div class="order-field container justify-center margin-t-default">
-                <button @click="$emit('select', order.id)">Done!️</button>
+                <button @click="$emit('select', order.id)">&#10003; Done️</button>
             </div>
         </div>
     </div>

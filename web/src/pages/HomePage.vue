@@ -17,7 +17,8 @@
                     <span>({{ price(sum) }} €)</span>
                 </div>
                 <div>
-                    <button>Checkout</button>
+                    <button style="margin-right: 2px;" @click="clear">&#10226; Reset</button>
+                    <button style="margin-left: 2px;">&#10003; Checkout</button>
                 </div>
             </div>
         </div>
