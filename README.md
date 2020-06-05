@@ -8,6 +8,12 @@ Basic example application to demonstrate an alternative way of building web APIs
 * [MongoDB](https://www.mongodb.com/) as a flexible document database for storage
 * [VueJS](https://vuejs.org/) as a frontend framework to build single-page web applications
 
+This project is intended to serve as a starting point to build modern, GraphQL-based single-page web application with a clean, opinionated code structure in backend and frontend.
+
+Inspired by: 
+* [OscarYuen/go-graphql-starter](https://github.com/OscarYuen/go-graphql-starter)
+* [andoshin11/clean-architecture-example-vue](https://github.com/andoshin11/clean-architecture-example-vue)
+
 ## Limitations
 * This example focuses primarily on the backend and the data flow between front- and backend. Accordingly, the UI is not very beautiful.
 * Only very basic business logic is implemented, just enough to demonstrate the above concepts on a real-world example.
