@@ -46,9 +46,6 @@ const mutations = {
     setMyOrder(state, order) {
         Vue.set(state, 'myOrder', order)
     },
-    clearMyOrder(state) {
-        Vue.set(state, 'myOrder', null)
-    },
     addOrder(state, order) {
         state.orders.push(order)
     },

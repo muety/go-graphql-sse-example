@@ -8,9 +8,6 @@ const state = () => ({
 const getters = {
     product: (state) => (id) => {
         return state.products.find(p => p.id === id)
-    },
-    productLoaded: (state) => (id) => {
-        return !!state.products.find(p => p.id === id)
     }
 }
 

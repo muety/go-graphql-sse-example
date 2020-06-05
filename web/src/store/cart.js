@@ -1,24 +1,19 @@
 import Vue from 'vue'
+import {Cart} from '../model/cart'
 
 const state = () => ({
-    products: []
+    cart: new Cart({})
 })
 
 const getters = {
-    sum: (state) => {
-        return state.products.reduce((acc, val) => acc += val.price, 0)
-    },
-    productIds: (state) => {
-        return state.products.map(p => p.id)
-    }
 }
 
 const mutations = {
     addProduct(state, product) {
-        Vue.set(state, 'products', [...state.products, product])
+        Vue.set(state.cart, 'products', [...state.cart.products, product])
     },
     clear(state) {
-        Vue.set(state, 'products', [])
+        Vue.set(state.cart, 'products', [])
     }
 }
 
