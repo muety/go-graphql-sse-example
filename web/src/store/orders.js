@@ -29,7 +29,7 @@ const state = () => ({
 const getters = {
     orderRefs: (state) => (id) => {
         return state.orders.filter(o => o.id === id)
-            .concat(state.myOrder.id === id ? [state.myOrder] : [])
+            .concat(state.myOrder && state.myOrder.id === id ? [state.myOrder] : [])
     },
     pendingOrders: (state) => {
         return state.orders.filter(o => o.isPending)
@@ -39,7 +39,7 @@ const getters = {
     },
     fulfilledOrders: (state) => {
         return state.orders.filter(o => o.isFulfilled)
-    }
+    },
 }
 
 const mutations = {
@@ -59,6 +59,7 @@ const mutations = {
         Vue.set(state, 'orders', state.orders.concat(orders))
     },
     updateOrder(state, update) {
+        // little hack to have this store handle orders for both admins and customers
         const orderRefs = state.orders.filter(o => o.id === update.id)
             .concat(state.myOrder && state.myOrder.id === update.id ? [state.myOrder] : [])
 

@@ -13,8 +13,8 @@
             <div class="order-field text-sm container justify-center margin-y-default">
                 {{ price(order.totalSum) }} €
             </div>
-            <div class="order-field container justify-center margin-t-default">
-                <button @click="$emit('select', order.id)">&#10003; Done️</button>
+            <div class="order-field container justify-center margin-t-default" v-show="buttonText">
+                <button @click="$emit('select', order.id)" v-html="buttonText"></button>
             </div>
         </div>
     </div>
@@ -41,6 +41,16 @@
             displayTime() {
                 if (addMinutes(this.order.createdAt, 59) > this.nowTime) return this.timeDiff(this.order.createdAt, true, true)
                 return '∞'
+            },
+            buttonText() {
+                switch (this.order.status) {
+                    case 'pending':
+                        return '&#10003; Done'
+                    case 'delivering':
+                        return '&#187; Delivered'
+                    default:
+                        return null
+                }
             }
         },
         created() {

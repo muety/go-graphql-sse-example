@@ -7,7 +7,7 @@
         <div class="container constrained-container w-full">
             <div v-if="!pendingOrders.length" class="text-left">No pending orders ...</div>
             <div v-for="o in pendingOrders" :key="o.id">
-                <order-item :order="o" class="margin-default"/>
+                <order-item :order="o" class="margin-default" @select="onOrderSelected($event, 'delivering')"/>
             </div>
         </div>
 
@@ -18,7 +18,7 @@
         </div>
         <div v-if="deliveringOrders.length" class="container constrained-container w-full">
             <div v-for="o in deliveringOrders" :key="o.id">
-                <order-item :order="o" class="margin-default"/>
+                <order-item :order="o" class="margin-default" @select="onOrderSelected($event, 'fulfilled')"/>
             </div>
         </div>
 
@@ -46,7 +46,11 @@
             ...mapGetters('orders', ['pendingOrders', 'deliveringOrders', 'fulfilledOrders'])
         },
         methods: {
-            ...mapActions('orders', ['fetchOrders'])
+            ...mapActions('orders', ['fetchOrders', 'modifyOrder']),
+            onOrderSelected(id, nextState) {
+                this.modifyOrder({ id, status: nextState })
+                    .catch(() => alert('Failed to update order'))
+            }
         },
         created() {
             this.fetchOrders({status: 'pending', full: true, overwrite: true})
