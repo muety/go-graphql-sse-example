@@ -18,5 +18,5 @@ class Product {
 }
 
 export {
-    Product,
+    Product
 }

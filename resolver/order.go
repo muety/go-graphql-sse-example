@@ -58,13 +58,13 @@ func (r *orderResolver) Products(ctx context.Context) (*[]*productResolver, erro
 		productIds[i] = item
 	}
 
-	products, err := ctx.Value(service.KeyProductService).(*service.ProductService).GetBatch(productIds)
+	products, err := ctx.Value(service.KeyProductService).(*service.ProductService).GetBatchMap(productIds)
 	if err != nil {
 		return nil, err
 	}
 
-	for i, p := range products {
-		l[i] = &productResolver{p: p}
+	for i, id := range productIds {
+		l[i] = &productResolver{p: products[id]}
 	}
 
 	return &l, nil

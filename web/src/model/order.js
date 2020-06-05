@@ -4,7 +4,7 @@ import {Product} from './product'
 const orderTimeoutMin = 10
 
 class Order {
-  constructor({id, queueId, createdAt, updatedAt, status, eta, totalSum,  products}) {
+  constructor({id, queueId, createdAt, updatedAt, status, eta, totalSum, products}) {
     this.id = id
     this.queueId = queueId
     this.createdAt = new Date(createdAt)

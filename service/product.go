@@ -53,6 +53,20 @@ func (s *ProductService) GetBatch(ids []string) (products []*model.Product, err 
 	return products, err
 }
 
+func (s *ProductService) GetBatchMap(ids []string) (productMap map[string]*model.Product, err error) {
+	productMap = make(map[string]*model.Product)
+	products, err := s.GetBatch(ids)
+	if err != nil {
+		return productMap, err
+	}
+
+	for _, p := range products {
+		productMap[p.Id] = p
+	}
+
+	return productMap, err
+}
+
 func (s *ProductService) GetAll() (products []*model.Product, err error) {
 	cur, err := config.GetDbCollection(config.CollectionProducts).Find(context.TODO(), bson.D{})
 	if err != nil {

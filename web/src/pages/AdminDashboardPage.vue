@@ -46,9 +46,9 @@
             ...mapGetters('orders', ['pendingOrders', 'deliveringOrders', 'fulfilledOrders'])
         },
         methods: {
-            ...mapActions('orders', ['fetchOrders', 'modifyOrder']),
+            ...mapActions('orders', ['fetchOrders', 'modifyOrder', 'subscribeOrderCreated']),
             onOrderSelected(id, nextState) {
-                this.modifyOrder({ id, status: nextState })
+                this.modifyOrder({id, status: nextState})
                     .catch(() => alert('Failed to update order'))
             }
         },
@@ -56,7 +56,9 @@
             this.fetchOrders({status: 'pending', full: true, overwrite: true})
                 .then(() => this.fetchOrders({status: 'delivering', full: true}))
                 .then(() => this.fetchOrders({status: 'fulfilled', full: true}))
-                .catch(() => alert('Failed to fetch orders'))
+
+            this.subscribeOrderCreated()
+                .catch(() => alert('Failed to subscribe to live updates'))
         }
     }
 </script>
