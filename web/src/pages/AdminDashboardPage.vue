@@ -5,7 +5,7 @@
             <h2 class="margin-x-default">Pending Orders</h2>
         </div>
         <div class="container constrained-container w-full">
-            <div v-if="!pendingOrders.length" class="text-left">No pending orders ...</div>
+            <div v-if="!pendingOrders.length" class="margin-x-default text-left">No pending orders ...</div>
             <div v-for="o in pendingOrders" :key="o.id">
                 <order-item :order="o" class="margin-default" @select="onOrderSelected($event, 'delivering')"/>
             </div>

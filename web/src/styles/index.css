@@ -86,6 +86,18 @@ h3 {
     padding: 0.75rem;
 }
 
+.padding-double {
+    padding: 1.5rem;
+}
+
+.padding-triple {
+    padding: 2.25rem;
+}
+
+.padding-quadruple {
+    padding: 3rem;
+}
+
 .padding-x-default {
     padding-left: 0.75rem;
     padding-right: 0.75rem;
@@ -137,6 +149,10 @@ h3 {
     width: 100%;
 }
 
+.h-full {
+    height: 100%;
+}
+
 .text-left {
     text-align: left;
 }
@@ -147,4 +163,24 @@ h3 {
 
 .text-white {
     color: #fff;
+}
+
+.text-bold {
+    font-weight: bold;
+}
+
+.text-lg {
+    font-size: 1.125rem;
+}
+
+.text-4xl {
+    font-size: 2.25rem;
+}
+
+.absolute {
+    position: absolute;
+}
+
+.relative {
+    position: relative;
 }

@@ -16,7 +16,7 @@
                     <h3 class="margin-r-default">🛒 {{ cartItems.length }} items</h3>
                     <span>({{ price(sum) }} €)</span>
                 </div>
-                <div>
+                <div v-show="cartItems.length">
                     <button style="margin-right: 2px;" @click="clear">&#10226; Reset</button>
                     <button style="margin-left: 2px;" @click="checkout">&#10003; Checkout</button>
                 </div>
@@ -35,6 +35,7 @@
         computed: {
             ...mapState('products', ['products']),
             ...mapState('cart', {cartItems: 'products'}),
+            ...mapState('orders', ['myOrder']),
             ...mapGetters('products', ['product']),
             ...mapGetters('cart', {sum: 'sum', cartItemIds: 'productIds'})
         },
@@ -47,6 +48,7 @@
             },
             checkout() {
                 this.placeOrder({items: this.cartItemIds})
+                    .then(() => this.$router.replace({name: 'order', params: {orderId: this.myOrder.id}}))
                     .catch(() => alert('Failed to place order'))
             }
         },
