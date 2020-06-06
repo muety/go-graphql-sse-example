@@ -52,18 +52,13 @@ func (r *orderResolver) TotalSum() *float64 {
 
 func (r *orderResolver) Products(ctx context.Context) (*[]*productResolver, error) {
 	l := make([]*productResolver, len(r.o.Items))
-	productIds := make([]string, len(r.o.Items))
 
-	for i, item := range r.o.Items {
-		productIds[i] = item
-	}
-
-	products, err := ctx.Value(service.KeyProductService).(*service.ProductService).GetBatchMap(productIds)
+	products, err := ctx.Value(service.KeyProductService).(*service.ProductService).GetBatchMap(r.o.Items)
 	if err != nil {
 		return nil, err
 	}
 
-	for i, id := range productIds {
+	for i, id := range r.o.Items {
 		l[i] = &productResolver{p: products[id]}
 	}
 
