@@ -10,6 +10,8 @@ Basic example application to demonstrate an alternative way of building web APIs
 
 This project is intended to serve as a starting point to build modern, GraphQL-based single-page web application with a clean, opinionated code structure in backend and frontend.
 
+**[Original blog post](https://muetsch.io/modern-reactive-web-apis-with-graphql-go-and-server-sent-events-part-1.html)**
+
 Inspired by: 
 * [OscarYuen/go-graphql-starter](https://github.com/OscarYuen/go-graphql-starter)
 * [andoshin11/clean-architecture-example-vue](https://github.com/andoshin11/clean-architecture-example-vue)
