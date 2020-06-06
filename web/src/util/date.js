@@ -11,9 +11,9 @@ function formatDiff (date1, date2, nonNegative, short) {
   const diffHrs = Math.floor((diffMs % 86400000) / 3600000)
   const diffMins = Math.round(((diffMs % 86400000) % 3600000) / 60000)
 
-  const displayMins = x => short ? 'm' : (x === 1 ? 'Minute' : 'Minuten')
-  const displayHrs = x => short ? 'h' : (x === 1 ? 'Stunde' : 'Stunden')
-  const displayDays = x => short ? 'd' : (x === 1 ? 'Tag' : 'Tage')
+  const displayMins = x => short ? 'm' : (x === 1 ? 'Minute' : 'Minutes')
+  const displayHrs = x => short ? 'h' : (x === 1 ? 'Hour' : 'Hours')
+  const displayDays = x => short ? 'd' : (x === 1 ? 'Day' : 'Days')
 
   let str = ''
   if (diffDays) str += `${diffDays} ${displayDays(diffDays)}, `
