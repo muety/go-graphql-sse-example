@@ -28,7 +28,7 @@
             <h2 class="margin-x-default">Fulfilled Orders</h2>
         </div>
         <div v-if="fulfilledOrders.length" class="container constrained-container w-full">
-            <div v-for="o in deliveringOrders" :key="o.id">
+            <div v-for="o in fulfilledOrders" :key="o.id">
                 <order-item :order="o" class="margin-default"/>
             </div>
         </div>
