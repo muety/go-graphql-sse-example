@@ -23,6 +23,10 @@ This project aims to provide a good starting point for a Vue-based SPA frontend 
 * Every entity is modeled as an instance of a class, defined inside [models](src/model). Entity-specific functionality is implemented as class methods, rather than static util functions (e.g. see `get sum()` in [Cart](src/model/cart.js)). 
 * Only [pages](src/pages) may ever interact with the store. [Components](src/components) receive and send all required in- and output data through props and events to their parent components.
 
+### Limitations
+* Instead of a bunch of custom-defined [CSS](src/styles/index.css) classes, you may want to use something like [Tailwind](https://tailwindcss.com) instead
+* See [README](../README.md#Limitations) 
+
 ## Project setup
 ```
 yarn install
