@@ -3,6 +3,8 @@
 ## Introduction
 This project aims to provide a good starting point for a Vue-based SPA frontend with a clean code structure and separation of concerns. Of course, software architecture is quite subjective and a matter of taste to some extent. But the present structure has proven to be very effective in several project of ours.
 
+**[Original blog post](https://muetsch.io/modern-reactive-web-apis-with-graphql-go-and-server-sent-events-part-1.html)**
+
 ### Project structure
 * `|_ components`: Reusable, custom HTML elements with no dependencies on external services.
 * `|_ pages`: Components that correspond to entire views within your application. Usually routable, i.e. can be addressed with a URL. Like [Activities](https://developer.android.com/reference/android/app/Activity) in Android.   
