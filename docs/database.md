@@ -30,7 +30,7 @@ You can now access a nice Mongo web UI at http://localhost:8081.
 
 * Enter the `mongo` shell and connect to your database
 ```bash
-mongo -u admin -p --authenticationDatabase admin
+mongo -u admin --authenticationDatabase admin
 ```
 
 * Add a new user for the database:
