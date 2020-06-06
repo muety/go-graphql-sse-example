@@ -25,7 +25,7 @@ Inspired by:
 ## Usage
 ### Backend (`/`)
 * Edit `config.yml` to configure your database
-* [Set up](database/README.md) the database (i.e. add users, collections and demo data)
+* [Set up](docs/database.md) the database (i.e. add users, collections and demo data)
 * Compile the GraphQL schema (located in [`schema`](schema)) to Go code: `./generate_schema.sh`
 * Compile the server code: `GO111MODULE=on go build`
 * Run the server: `./go-sse-graphql-example`
@@ -35,6 +35,8 @@ Inspired by:
 * Install dependencies: `yarn install`
 * Run the frontend for development: `yarn serve`
 * Go to http://localhost:4000 
+
+The interactive GraphQL explorer can be accessed at http://localhost:8080/graphiql. You can find [example queries here](docs/queries.md).
 
 ## Limitations
 * This example focuses primarily on the backend and the data flow between front- and backend. Accordingly, the UI is not very beautiful.
