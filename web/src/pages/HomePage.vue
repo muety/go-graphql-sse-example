@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="container justify-center flex-col items-center">
+        <div class="container justify-center flex-col items-center padding-x-default">
             <div class="container flex-col justify-start items-start w-full constrained-container">
                 <h2>Products</h2>
             </div>

@@ -3,8 +3,8 @@
         <div class="product-field font-semibold">
             {{ product.name }}
         </div>
-        <div class="product-field grow text-sm">
-            {{ product.description }}
+        <div class="product-field text-sm overflow-hidden">
+            <p class="text-truncate" :title="product.description">{{ product.description }}</p>
         </div>
         <div class="product-field">
             {{ price(product.price) }} €
@@ -42,6 +42,6 @@
         margin: 0 10px;
         display: flex;
         align-items: center;
+        white-space: nowrap;
     }
-
 </style>
